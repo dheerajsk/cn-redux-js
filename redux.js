@@ -29,7 +29,7 @@ function todoApp(state = initialState, action) {
     case TOGGLE_TODO:
       return {
         ...state,
-        todos: todos.map((todo, i) => {
+        todos: state.todos.map((todo, i) => {
           if (i === action.index) {
             return {
               ...todo,
@@ -50,9 +50,9 @@ const redux = require('redux');
 const store = redux.createStore(todoApp);
 
 // dispatch actions
-store.disptach(addTodo('Learn Redux'));
-store.disptach(addTodo('Build an app'));
-store.disptach(toggleTodo(0));
+store.dispatch(addTodo('Learn Redux'));
+store.dispatch(addTodo('Build an app'));
+store.dispatch(toggleTodo(0));
 
 // get the current state
 console.log(store.getState());
